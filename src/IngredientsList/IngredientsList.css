@@ -1,0 +1,128 @@
+/* 
+   section {
+    padding: 1.5rem;
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps content left-aligned inside 
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .ingredients-list {
+    list-style: disc inside;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #444;
+    width: 100%;
+  }
+  
+  .get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .get-recipe-container h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.2rem;
+    color: #d17c00;
+  }
+  
+  .get-recipe-container p {
+    margin: 0;
+    color: #6d4c41;
+  }
+  
+  .get-recipe-container button {
+    background-color: #ffa000;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .get-recipe-container button:hover {
+    background-color: #fb8c00;
+  }
+   */
+   section {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    text-align: left;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .ingredients-list {
+    list-style: disc inside;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  
+  .get-recipe-container h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.2rem;
+    color: #d17c00;
+  }
+  
+  .get-recipe-container p {
+    margin: 0;
+    color: #6d4c41;
+  }
+  
+  .get-recipe-container button {
+    background-color: #ffa000;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .get-recipe-container button:hover {
+    background-color: #fb8c00;
+  }
+  

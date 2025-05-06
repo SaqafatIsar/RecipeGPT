@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Signup from './Signup/Signup';
+import Login from './Login/Login';
+import Main from './Main/Main';
+import { auth } from './firebase';
+import SavedRecipe from './SavedRecipe/SavedRecipe';
+
+
+
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(setUser);
+    return () => unsubscribe();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+     
+      <Routes>
+        <Route path="/" element={user ? <Main /> : <Navigate to="/login" />} />
+        <Route path="/login" element={<Login onAuthSuccess={() => window.location.href = "/"} />} />
+        <Route path="/signup" element={<Signup onAuthSuccess={() => window.location.href = "/"} />} />
+        <Route path="/saved" element={<SavedRecipe />} />
+      </Routes>
+    </Router>
   );
 }
 

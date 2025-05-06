@@ -1,0 +1,69 @@
+/* Center the entire recipe box on the page */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align the content at the top */
+  height: 100vh; /* Full height of the viewport */
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Optional: background color */
+}
+
+/* General Section Styles */
+section.recipe {
+  padding: 1.5rem;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin: 1.5rem auto;
+  max-width: 600px;  /* Ensures same width as IngredientsList */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  /* text-align: center;  */
+  width: 100%; /* Ensure section fills the parent width */
+}
+
+/* Recipe Heading Styling */
+.recipe h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* ReactMarkdown styling for displaying the recipe text */
+.recipe .react-markdown {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* Save Button Styling */
+.save-btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #43a047;
+}
+
+/* Button Alignment */
+.save-btn {
+  display: block;
+  margin: 1.5rem auto 0; /* Centers the button under the recipe */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section.recipe {
+    padding: 1rem;
+    max-width: 100%; /* Adjusts to full width on small screens */
+  }
+}

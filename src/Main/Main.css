@@ -1,0 +1,83 @@
+/* main {
+    padding: 30px 30px 10px;
+  
+    border: 2px solid red;
+}
+
+.add-ingredient-form {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    height: 38px;
+    width: 500px;
+}
+
+.add-ingredient-form > input {
+    border-radius: 6px;
+    border: 1px solid #D1D5DB;
+    padding: 9px 13px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+    min-width: 150px;
+    max-width: 400px;
+}
+
+.add-ingredient-form > button {
+    font-family: Inter, sans-serif;
+    border-radius: 6px;
+    border: none;
+    background-color: #141413;
+    color: #FAFAF8;
+    width: 150px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.add-ingredient-form > button::before {
+    content: "+";
+    margin-right: 5px;
+} */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header is assumed to be centered and styled within its own component */
+  
+  .add-ingredient-form {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 600px;
+    justify-content: center;
+  }
+  
+  .add-ingredient-form input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .add-ingredient-form button {
+    padding: 0.75rem 1.25rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-ingredient-form button:hover {
+    background-color: #43a047;
+  }
+  
