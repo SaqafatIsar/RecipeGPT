@@ -24,45 +24,60 @@
 //     }
 // }
 // src/ai.js
+// src/ai.js
+
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
+/**
+ * Fetches a recipe suggestion from OpenRouter based on provided ingredients.
+ *
+ * @param {string[]} ingredientsArr - An array of ingredient names.
+ * @returns {Promise<string>} - The AI-generated recipe or an error message.
+ */
 export async function getRecipeFromOpenRouter(ingredientsArr) {
-    const ingredientsString = ingredientsArr.join(", ");
+  const ingredientsString = ingredientsArr.join(", ");
+  const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
 
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${process.env.REACT_APP_OPENROUTER_API_KEY}`,
-                "Content-Type": "application/json",
-                "HTTP-Referer": "http://localhost:3000", // required by OpenRouter (use your deploy URL in prod)
-                "X-Title": "RecipeGPT"
-            },
-            body: JSON.stringify({
-                model: "openai/gpt-3.5-turbo", // use this for more reliable access
-                messages: [
-                    {
-                        role: "system",
-                        content: `You are a helpful cooking assistant. The user will give you a list of ingredients. Recommend a recipe using some or all of the ingredients.`,
-                    },
-                    {
-                        role: "user",
-                        content: `I have ${ingredientsString}. What can I cook?`,
-                    },
-                ],
-            }),
-        });
+  if (!OPENROUTER_API_KEY) {
+    console.error("OpenRouter API key is missing. Please set REACT_APP_OPENROUTER_API_KEY in your .env file.");
+    return "Error: Missing API key.";
+  }
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error("Failed to fetch recipe:", errorText);
-            return `Error: ${errorText}`;
-        }
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+        "X-Title": "RecipeGPT"
+      },
+      body: JSON.stringify({
+        model: "openai/gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "You are a helpful cooking assistant. The user will provide a list of ingredients. Recommend a recipe using some or all of the ingredients."
+          },
+          {
+            role: "user",
+            content: `I have ${ingredientsString}. What can I cook?`
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 500
+      })
+    });
 
-        const data = await response.json();
-        return data.choices[0].message.content;
-    } catch (error) {
-        console.error("Error fetching recipe:", error.message);
-        return "Error generating recipe. Please try again.";
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Failed to fetch recipe:", errorText);
+      return `Error: ${errorText}`;
     }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error("Error fetching recipe:", error.message);
+    return "Error generating recipe. Please try again.";
+  }
 }

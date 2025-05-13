@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "recipegpt-270c7"
-  }
+    "default": "recipegpt-27682"
+  },
+  "targets": {},
+  "etags": {}
 }
