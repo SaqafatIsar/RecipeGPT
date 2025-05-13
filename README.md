@@ -8,7 +8,7 @@ Built with **React**, **Firebase**, and **OpenRouter's GPT-3.5 API**.
 
 ## 🔗 Live Demo
 
-👉 [RecipeGPT on Firebase](https://recipegpt-270c7.web.app/)
+👉 [RecipeGPT on Firebase](https://recipegpt-27682.web.app/)
 
 ---
 
